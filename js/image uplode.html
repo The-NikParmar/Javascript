@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Slider</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <style>
+        #imageContainer {
+            width: 80%;
+            margin: auto;
+        }
+        .imageWrapper img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload and Display Images in Slider</h1>
+    <input type="file" id="imageUpload" accept="image/*" multiple>
+    <div id="imageContainer" class="slider"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#imageUpload').on('change', function(event) {
+                const files = event.target.files;
+                const imageContainer = $('#imageContainer');
+                imageContainer.empty();  // Clear the existing images
+
+                // Destroy previous instance of slick if it exists
+                if (imageContainer.hasClass('slick-initialized')) {
+                    imageContainer.slick('unslick');
+                }
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        const imgElement = $('<img>').attr('src', e.target.result);
+
+                        const imageWrapper = $('<div>').addClass('imageWrapper');
+                        imageWrapper.append(imgElement);
+
+                        imageContainer.append(imageWrapper);
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+
+                // Initialize the slider after appending images
+                setTimeout(function() {
+                    imageContainer.slick({
+                        dots: true,
+                        infinite: true,
+                        speed: 300,
+                        slidesToShow: 1,
+                        adaptiveHeight: true
+                    });
+                }, 500); // Slightly longer delay to ensure images are fully loaded
+            });
+        });
+    </script>
+</body>
+</html>

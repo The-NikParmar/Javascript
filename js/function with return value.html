@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>funciton with  return value </title>
+</head>
+<body>
+	<script>
+		function per(n1,n2,n3){
+			 var total = Number(n1) + Number(n2) + Number(n3);
+			 
+			 
+			 var per = total/300 *100
+
+			 return per
+		}
+
+		var x = prompt("Enter maths marks:- ");
+		var y = prompt("ENter scied marks :- ");
+		var z = prompt("Enter ss marks :- ");
+
+		var l = per(x,y,z)
+		
+		document.write(l);
+
+	</script>
+</body>
+</html>

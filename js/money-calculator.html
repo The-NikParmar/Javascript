@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator</title>
+</head>
+<body>
+    <label>500 rs</label>
+    <input type="text" id="ok" oninput="mydemo()"> =
+    <input type="text" id="no">
+
+    <br><br>
+    <label>200 rs</label>
+    <input type="text" id="two" oninput="mydemo()"> =
+    <input type="text" id="two1">
+
+    <h1 id="total">Total cash: </h1>
+
+<script>
+    function mydemo() {
+        let b = parseFloat(document.getElementById("ok").value);  // Parse input value to float
+        let x = b * 500;
+        document.getElementById('no').value = x;  // Update input field #no with calculated value
+
+        let m = parseFloat(document.getElementById("two").value);  // Parse input value to float
+        let n = m * 200;
+        document.getElementById("two1").value = n;  // Update input field #two1 with calculated value
+
+        let totalCash = x + n;  // Calculate total cash
+        document.getElementById('total').innerHTML = "Total cash: " + totalCash;  // Update #total element
+    }
+</script>
+
+</body>
+</html>
