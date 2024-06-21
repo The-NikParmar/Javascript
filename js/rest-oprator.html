@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest-oprator</title>
+</head>
+<body>
+    <script>
+        function sum(name,course , ...args){
+            let sum = 0;
+            for(var i in args){
+                sum = sum + args[i];
+            }
+            document.write(`${name }  Age is :- ${sum}   and course is :- ${course}`)
+
+        }
+        sum("Nikhil parmar ",'Bca', 1,2,3,4,5,6)
+    </script>
+</body>
+</html>

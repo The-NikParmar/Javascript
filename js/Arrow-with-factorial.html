@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Number </title>
+</head>
+<body>
+    <script>
+        var factorial = () =>
+        {
+            var no = prompt("Enter The Number :- ");
+            no = parseInt(no);
+
+            var fact = 1;
+            for(var i = 1; i<=no; i++){
+                fact = fact * i;
+            }
+            document.write(`your Given Number Factorial   is :- ${fact} `);
+        }
+
+        factorial()
+    </script>
+</body>
+</html>
