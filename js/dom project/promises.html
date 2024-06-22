@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <script>
+        let prom = new Promise(function(approved,reject){
+            let age = 15;
+            if (age >= 18) {
+                approved("Approved.... you are eligbale For voting");
+            }else{
+                reject("Sorry you are not eligbale for Voting.....");
+            }
+        });
+
+        console.log(prom);
+    </script>
+</body>
+</html>
