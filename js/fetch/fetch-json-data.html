@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Data fetch</title>
+</head>
+<body>
+    <h1>Data Fetch from Server </h1>
+    <button onclick="test()">ok</button>
+    <p id="demo">
+
+    </p>    
+
+    <script>
+        function test(){
+            fetch("https://jsonplaceholder.typicode.com/users")
+            .then((response) => response.json())
+            .then((data)=> console.log(data))
+            .catch((error)=> console.log("Data can not be found",error))
+        }
+
+        test()
+    </script>
+</body>
+</html>
